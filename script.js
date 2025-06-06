@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
             langButtons.forEach(btn => btn.classList.remove('selected'));
             button.classList.add('selected');
             applyTranslation();
-            // Após aplicar a tradução, re-aplique o tema para atualizar o texto do botão
+            // Após aplicar a tradução, re-aplica o tema para atualizar o texto do botão
             applyTheme(localStorage.getItem('theme') || 'light');
         });
     });
@@ -361,4 +361,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById(`lang-${currentLang}`).classList.add('selected');
     // Aplicar o tema salvo na inicialização
     applyTheme(theme);
+    console.log('dreq')
 });

@@ -22,7 +22,7 @@
 }
 
 /* Tema Escuro */
-.dark-theme {
+.dark {
     --cor-primaria: rgb(30, 40, 60);
     /* Azul escuro mais suave para o tema escuro */
     --cor-secundaria: rgb(255, 190, 0);
