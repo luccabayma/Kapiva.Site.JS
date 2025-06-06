@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Itim&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+/* Variáveis CSS para cores e espaçamento */
+:root {
+    --cor-primaria: rgb(16, 34, 70);
+    --cor-secundaria: rgb(248, 170, 0);
+    --cor-fundo-claro: #f4f4f4;
+    /* Cinza claro para o fundo do body */
+    --cor-fundo-branco: #ffffff;
+    /* Fundo branco puro para o main container e seções */
+    --cor-texto: rgb(187, 98, 58);
+    /* Cor de texto padrão */
+    --cor-texto-claro: #ffffff;
+    --cor-selecionado: rgb(236, 158, 122);
+    /* Laranja mais claro para item selecionado */
+    --sombra-leve: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --sombra-media: 0 4px 10px rgba(0, 0, 0, 0.15);
+    --sombra-forte: 0 8px 20px rgba(0, 0, 0, 0.2);
+    --nav-bg-light: var(--cor-primaria);
+    --link-color-light: var(--cor-secundaria);
+    /* Cor padrão do link em tema claro */
+}
+
+/* Tema Escuro */
+.dark-theme {
+    --cor-primaria: rgb(30, 40, 60);
+    /* Azul escuro mais suave para o tema escuro */
+    --cor-secundaria: rgb(255, 190, 0);
+    /* Laranja mais vibrante para contraste */
+    --cor-fundo-claro: #222222;
+    /* Fundo escuro */
+    --cor-fundo-branco: #333333;
+    /* Fundo de seções mais escuro */
+    --cor-texto: #e0e0e0;
+    /* Texto claro */
+    --cor-texto-claro: #ffffff;
+    --cor-selecionado: rgb(255, 170, 70);
+    /* Laranja para item selecionado */
+    --sombra-leve: 0 2px 5px rgba(0, 0, 0, 0.3);
+    --sombra-media: 0 4px 10px rgba(0, 0, 0, 0.4);
+    --sombra-forte: 0 8px 20px rgba(0, 0, 0, 0.5);
+    --nav-bg-light: #1a1a1a;
+    --link-color-light: #ffcc66;
+    /* Cor do link em tema escuro */
+}
+
+body {
+    font-family: 'Spectral', serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+.top-bar {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--sombra-media);
+}
+
+.lang-switcher button,
+.theme-switcher button {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+    border: none;
+    padding: 8px 12px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lang-switcher button:hover,
+.theme-switcher button:hover {
+    background-color: var(--cor-selecionado);
+}
+
+.lang-switcher button.selected {
+    background-color: var(--cor-primaria);
+    border: 1px solid var(--cor-secundaria);
+}
+
+/* Hamburguer menu */
+.hamburger-menu {
+    display: none;
+    /* Oculta o menu de hambúrguer em telas maiores */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+    /* Garante que fique acima da nav */
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--cor-texto-claro);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+
+.nav-wrapper {
+    width: 100%;
+    background-color: var(--nav-bg-light);
+    box-shadow: var(--sombra-leve);
+    z-index: 999;
+}
+
+nav ul.horizontal {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+nav ul.horizontal li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--cor-texto-claro);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul.horizontal li a:hover,
+nav ul.horizontal li a.selecionado {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: var(--cor-fundo-branco);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: var(--sombra-media);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--cor-primaria);
+    margin-top: 0;
+    border-bottom: 2px solid var(--cor-secundaria);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3 {
+    color: var(--cor-secundaria);
+    border-color: var(--cor-primaria);
+}
+
+p {
+    margin-bottom: 10px;
+    color: var(--cor-texto);
+    transition: color 0.3s ease;
+}
+
+a {
+    color: var(--link-color-light);
+    /* Garante que os links sem span também tenham a cor correta */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* REGRA ADICIONADA/AJUSTADA PARA GARANTIR VISIBILIDADE DO TEXTO DENTRO DE LINKS */
+a span {
+    color: var(--link-color-light);
+    /* Garante que o texto dentro do span use a cor do link */
+    display: inline;
+    /* Assegura que o elemento se comporte como inline */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: var(--sombra-leve);
+    background-color: var(--cor-fundo-branco);
+    border-radius: 8px;
+    overflow: hidden;
+    /* Garante que as bordas arredondadas funcionem com o colapse */
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: var(--cor-texto);
+}
+
+th {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.dark-theme tr:nth-child(even) {
+    background-color: #444444;
+}
+
+footer {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: var(--sombra-media);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer .redes-sociais a {
+    color: var(--cor-texto-claro);
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .redes-sociais a:hover {
+    color: var(--cor-secundaria);
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .top-bar {
+        padding: 10px;
+    }
+
+    .lang-switcher,
+    .theme-switcher {
+        display: none;
+        /* Oculta em telas menores */
+    }
+
+    .hamburger-menu {
+        display: flex;
+        /* Mostra o menu de hambúrguer */
+    }
+
+    .nav-wrapper nav ul.horizontal {
+        display: none;
+        /* Oculta a navegação horizontal */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        /* Ajusta com base na altura da top-bar */
+        left: 0;
+        background-color: var(--nav-bg-light);
+        z-index: 1000;
+        box-shadow: var(--sombra-media);
+    }
+
+    .nav-wrapper.active nav ul.horizontal {
+        display: flex;
+        /* Mostra a navegação quando a classe 'active' está presente */
+    }
+
+    .nav-wrapper nav ul.horizontal li {
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-wrapper nav ul.horizontal li a {
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    main {
+        padding: 0 10px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    table,
+    th,
+    td {
+        display: block;
+    }
+
+    th {
+        text-align: center;
+        background-color: var(--cor-primaria);
+        color: var(--cor-texto-claro);
+    }
+
+    tr {
+        margin-bottom: 10px;
+        display: block;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+}
