@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', newTheme);
         applyTheme(newTheme);
     }
-    s
+    
     langButtons.forEach(button => {
         button.addEventListener('click', () => {
             currentLang = button.id.replace('lang-', '');
